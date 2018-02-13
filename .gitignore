@@ -3,3 +3,5 @@
 LICENSE
 readme.txt
 phpcs.xml.dist
+
+.env

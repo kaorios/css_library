@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    env_file: .env
+
+  wordpress:
+    image: wordpress:4.9.4
+    ports:
+      - 4011:80
+    restart: always
+    env_file: .env
+    volumes:
+      - .:/var/www/html/wp-content/themes/css-library
+    depends_on:
+      - db
+
+volumes:
+  db_data:
